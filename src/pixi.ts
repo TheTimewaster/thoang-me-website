@@ -1,109 +1,143 @@
-import { Application, Graphics, filters, BLEND_MODES } from "pixi.js";
-import { KawaseBlurFilter } from "@pixi/filter-kawase-blur";
+import { Application, Graphics, NoiseFilter, WebGLRenderer } from "pixi.js";
+import { KawaseBlurFilter } from "pixi-filters";
 
-export const draw = () => {
-    const app = new Application({
-        antialias: true,
-        backgroundAlpha: 0,
-        width: 1270,
-        height: 720,
-        resolution: window.devicePixelRatio || 1,
-    });
-    app.view.classList.add("w-full");
-    app.view.classList.add("h-full");
-    app.view.classList.add("fixed");
-    app.view.classList.add("top-0");
-    app.view.classList.add("object-cover");
-    app.view.classList.add("-z-1");
-    document.body.appendChild(app.view);
+const factor = 0.3;
 
-    const c1 = new Graphics();
-    c1.lineStyle(0);
-    c1.beginFill(0xF96446, 0.5);
-    c1.drawCircle(320, 240, 240);
-    c1.blendMode = BLEND_MODES.SCREEN;
-    c1.endFill();
+class Shape {
+  _graphic: Graphics = new Graphics();
+  vector: [number, number] = [0, 0];
 
-    const c2 = new Graphics();
-    c2.lineStyle(0);
-    c2.beginFill(0xFAEA5F, 0.5);
-    c2.drawCircle(640, 360, 240);
-    c2.blendMode = BLEND_MODES.SCREEN;
-    c2.endFill();
+  constructor({
+    color,
+    vector,
+    initPos,
+  }: {
+    color: number;
+    vector: [number, number];
+    initPos: [number, number];
+  }) {
+    this.vector = vector;
+    this.initGraphics(color, initPos);
+  }
 
-    const c3 = new Graphics();
-    c3.lineStyle(0);
-    c3.beginFill(0x2DFAA9, 0.5);
-    c3.drawCircle(960, 480, 240);
-    c3.blendMode = BLEND_MODES.SCREEN;
-    c3.endFill();
+  initGraphics(color: number, position: [number, number]) {
+    this._graphic = new Graphics()
+      .circle(0, 0, 480)
+      .setStrokeStyle(0)
+      .fill(color);
+    // .getGlobalPosition(new Point(position[0], position[1]))
+    this._graphic.position.set(position[0], position[1]);
+    this._graphic.blendMode = 'screen'
+  }
 
-    app.stage.addChild(c1, c2, c3);
+  move() {
+    if (this._graphic.position.x >= 1280 || this._graphic.position.x <= 0) {
+      this.vector[0] = this.vector[0] * -1;
+    }
+    this._graphic.position.x += this.vector[0];
 
-    const blurFilter = new KawaseBlurFilter(20, 10, false);
-    blurFilter.pixelSize = [3, 3];
-    blurFilter.padding = 240;
-    const oldFilmfilter = new filters.NoiseFilter(0.1, 1);
-    app.stage.filters = [blurFilter, oldFilmfilter];
+    if (this._graphic.position.y >= 720 || this._graphic.position.y <= 0) {
+      this.vector[1] = this.vector[1] * -1;
+    }
+    this._graphic.position.y += this.vector[1];
+  }
 
-    let c1XFactor = 1;
-    let c1YFactor = 1;
-    const updateC1Pos = () => {
-        if (c1.position.x >= 200) {
-            c1XFactor = -1;
-        } else if (c1.position.x <= 0) {
-            c1XFactor = 1;
-        }
-        c1.position.x += c1XFactor * 0.2;
+  get graphic() {
+    return this._graphic;
+  }
+}
 
-        if (c1.position.y >= 200) {
-            c1YFactor = -1;
-        } else if (c1.position.y <= -200) {
-            c1YFactor = 1;
-        }
-        c1.position.y += c1YFactor * 0.3;
-    };
+let c1: Shape;
+let c2: Shape;
+let c3: Shape;
+let app: Application;
 
-    let c2XFactor = -1;
-    let c2YFactor = 1;
-    const updateC2Pos = () => {
-        if (c2.position.x >= 200) {
-            c2XFactor = -1;
-        } else if (c2.position.x <= -200) {
-            c2XFactor = 1;
-        }
-        c2.position.x += c2XFactor * 0.2;
+const switchColor = (isDarkMode: boolean) => {
+  c1 = new Shape({
+    color: isDarkMode ? 0x2e05be : 0xfa856e,
+    vector: c1.vector,
+    initPos: [c1.graphic.x, c1.graphic.y],
+  });
 
-        if (c2.position.y >= 200) {
-            c2YFactor = -1;
-        } else if (c2.position.y <= -200) {
-            c2YFactor = 1;
-        }
-        c2.position.y += c2YFactor * 0.1;
-    };
+  c2 = new Shape({
+    color: isDarkMode ? 0x02452a : 0x2dfaa9,
+    vector: c2.vector,
+    initPos: [c2.graphic.x, c2.graphic.y],
+  });
 
-    let c3XFactor = 1;
-    let c3YFactor = -1;
-    const updateC3Pos = () => {
-        if (c3.position.x >= 200) {
-            c3XFactor = -1;
-        } else if (c3.position.x <= 0) {
-            c3XFactor = 1;
-        }
-        c3.position.x += c3XFactor * 0.05;
+  c3 = new Shape({
+    color: isDarkMode ? 0x140251 : 0xfaea5f,
+    vector: c3.vector,
+    initPos: [c3.graphic.x, c3.graphic.y],
+  });
 
-        if (c3.position.y >= 200) {
-            c3YFactor = -1;
-        } else if (c3.position.y <= -200) {
-            c3YFactor = 1;
-        }
-        c3.position.y += c3YFactor * 0.2;
-    };
-    app.ticker.add(() => {
-        updateC1Pos();
-        updateC2Pos();
-        updateC3Pos();
-    });
+  app.stage.removeChildren();
+  app.stage.addChild(c1.graphic, c2.graphic, c3.graphic);
+};
+
+const draw = async () => {
+  const isDarkMode = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  app = new Application<WebGLRenderer<HTMLCanvasElement>>();
+
+  await app.init({
+    antialias: true,
+    backgroundAlpha: 0,
+    width: 1280,
+    height: 720,
+    resolution: window.devicePixelRatio || 1,
+  });
+
+  document.body.appendChild(app.canvas);
+
+  app.canvas.classList.add("w-full");
+  app.canvas.classList.add("h-full");
+  app.canvas.classList.add("fixed");
+  app.canvas.classList.add("top-0");
+  app.canvas.classList.add("object-cover");
+  app.canvas.classList.add(/* tw */ "-z-50");
+
+  c1 = new Shape({
+    color: isDarkMode ? 0x2e05be : 0xa289fc,
+    vector: [-1 * factor, -1 * factor],
+    initPos: [320, 240],
+  });
+
+  c2 = new Shape({
+    color: isDarkMode ? 0x02452a : 0x2dfaa9,
+    vector: [1 * factor, 1 * factor],
+    initPos: [640, 360],
+  });
+
+  c3 = new Shape({
+    color: isDarkMode ? 0x140251 : 0xffe1db,
+    vector: [1 * factor, -1 * factor],
+    initPos: [960, 480],
+  });
+
+  app.stage.addChild(c1.graphic, c2.graphic, c3.graphic);
+
+  const blurFilter = new KawaseBlurFilter({
+    strength: 10,
+    quality: 10,
+    clamp: true,
+    pixelSize: [3, 3],
+  });
+  blurFilter.padding = 240;
+  const oldFilmfilter = new NoiseFilter({
+    noise: 0.1,
+  });
+  app.stage.filters = [blurFilter];
+
+  app.ticker.add(() => {
+    c1.move();
+    c2.move();
+    c3.move();
+  });
 };
 
 draw();
+
+export { switchColor };
