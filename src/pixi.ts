@@ -1,7 +1,65 @@
 import { Application, Graphics, NoiseFilter, WebGLRenderer } from "pixi.js";
 import { KawaseBlurFilter } from "pixi-filters";
 
-const factor = 0.3;
+type ShapeDefinition = {
+  color: number;
+  vector: [number, number];
+  initPos: [number, number];
+  colors: {
+    dark: number;
+    light: number;
+  };
+}
+
+const speed = 0.3;
+const shapes: ShapeDefinition[] = [
+  {
+    color: 0x2e05be,
+    vector: [-1 * speed, -1 * speed],
+    initPos: [160, 160],
+    colors: {
+      dark: 0x2e05be,
+      light: 0xcfc7fa,
+    },
+  },
+  {
+    color: 0x02452a,
+    vector: [1 * speed, 1 * speed],
+    initPos: [960, 360],
+    colors: {
+      dark: 0x02452a,
+      light: 0xd7e9db,
+    }
+  },
+  {
+    color: 0x140251,
+    vector: [1 * speed, -1 * speed],
+    initPos: [1280, 480],
+    colors: {
+      dark: 0x140251,
+      light: 0xced9ed,
+    }
+  },
+  {
+    color: 0x995252,
+    vector: [-1 * speed, 1 * speed],
+    initPos: [0, 720],
+    colors: {
+      dark: 0x995252,
+      light: 0xe2c6ee,
+    }
+  },
+];
+
+const isPlaying = {
+  value: true,
+  get() {
+    return this.value;
+  },
+  set(value: boolean) {
+    this.value = value;
+  },
+}
 
 class Shape {
   _graphic: Graphics = new Graphics();
@@ -47,32 +105,28 @@ class Shape {
   }
 }
 
-let c1: Shape;
-let c2: Shape;
-let c3: Shape;
 let app: Application;
+let shapeInstances: Shape[] = [];
 
 const switchColor = (isDarkMode: boolean) => {
-  c1 = new Shape({
-    color: isDarkMode ? 0x2e05be : 0xfa856e,
-    vector: c1.vector,
-    initPos: [c1.graphic.x, c1.graphic.y],
+  const oldPositions = shapeInstances.map((shape) => {
+    return [shape.graphic.x, shape.graphic.y];
   });
 
-  c2 = new Shape({
-    color: isDarkMode ? 0x02452a : 0x2dfaa9,
-    vector: c2.vector,
-    initPos: [c2.graphic.x, c2.graphic.y],
-  });
+  shapeInstances = shapes.map((definition, index) => {
+    const color = isDarkMode ? definition.colors.dark : definition.colors.light;
 
-  c3 = new Shape({
-    color: isDarkMode ? 0x140251 : 0xfaea5f,
-    vector: c3.vector,
-    initPos: [c3.graphic.x, c3.graphic.y],
+    return new Shape({
+      color: color,
+      vector: definition.vector,
+      initPos: oldPositions[index] as [number, number],
+    });
   });
 
   app.stage.removeChildren();
-  app.stage.addChild(c1.graphic, c2.graphic, c3.graphic);
+  app.stage.addChild(
+    ...shapeInstances.map((shape) => shape.graphic)
+  );
 };
 
 const draw = async () => {
@@ -99,25 +153,19 @@ const draw = async () => {
   app.canvas.classList.add("object-cover");
   app.canvas.classList.add(/* tw */ "-z-50");
 
-  c1 = new Shape({
-    color: isDarkMode ? 0x2e05be : 0xa289fc,
-    vector: [-1 * factor, -1 * factor],
-    initPos: [320, 240],
+  shapeInstances = shapes.map((definition) => {
+    const color = isDarkMode ? definition.colors.dark : definition.colors.light;
+
+    return new Shape({
+      color: color,
+      vector: definition.vector,
+      initPos: definition.initPos,
+    });
   });
 
-  c2 = new Shape({
-    color: isDarkMode ? 0x02452a : 0x2dfaa9,
-    vector: [1 * factor, 1 * factor],
-    initPos: [640, 360],
-  });
-
-  c3 = new Shape({
-    color: isDarkMode ? 0x140251 : 0xffe1db,
-    vector: [1 * factor, -1 * factor],
-    initPos: [960, 480],
-  });
-
-  app.stage.addChild(c1.graphic, c2.graphic, c3.graphic);
+  app.stage.addChild(
+    ...shapeInstances.map((shape) => shape.graphic)
+  );
 
   const blurFilter = new KawaseBlurFilter({
     strength: 10,
@@ -127,17 +175,31 @@ const draw = async () => {
   });
   blurFilter.padding = 240;
   const oldFilmfilter = new NoiseFilter({
-    noise: 0.1,
+    noise: 0.05,
   });
-  app.stage.filters = [blurFilter];
+  app.stage.filters = [blurFilter, oldFilmfilter];
 
   app.ticker.add(() => {
-    c1.move();
-    c2.move();
-    c3.move();
+    if (isPlaying.get()) {
+      shapeInstances.forEach((shape) => {
+        shape.move();
+      });
+    }
   });
 };
 
 draw();
 
-export { switchColor };
+const stop = () => {
+  isPlaying.set(false);
+  app.stop();
+
+}
+
+const resume = () => {
+  isPlaying.set(true);
+  app.start();
+
+}
+
+export { switchColor, stop, resume, isPlaying };
