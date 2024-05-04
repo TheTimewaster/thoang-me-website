@@ -21,5 +21,6 @@
     "pixi-filters": "6.0.3",
     "pixi.js": "^8.1.0",
     "throttle-debounce": "^5.0.0"
-  }
+  },
+  "packageManager": "yarn@4.2.1"
 }
