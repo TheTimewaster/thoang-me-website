@@ -2,7 +2,6 @@ import { Application, Graphics, NoiseFilter, WebGLRenderer } from "pixi.js";
 import { KawaseBlurFilter } from "pixi-filters";
 
 type ShapeDefinition = {
-  color: number;
   vector: [number, number];
   initPos: [number, number];
   colors: {
@@ -14,39 +13,35 @@ type ShapeDefinition = {
 const speed = 0.3;
 const shapes: ShapeDefinition[] = [
   {
-    color: 0x2e05be,
     vector: [-1 * speed, -1 * speed],
     initPos: [160, 160],
     colors: {
       dark: 0x2e05be,
-      light: 0xcfc7fa,
+      light: 0xB0AAFA,
     },
   },
   {
-    color: 0x02452a,
     vector: [1 * speed, 1 * speed],
     initPos: [960, 360],
     colors: {
       dark: 0x02452a,
-      light: 0xd7e9db,
+      light: 0xF0A1C8,
     }
   },
   {
-    color: 0x140251,
     vector: [1 * speed, -1 * speed],
     initPos: [1280, 480],
     colors: {
       dark: 0x140251,
-      light: 0xced9ed,
+      light: 0x96E4EE,
     }
   },
   {
-    color: 0x995252,
     vector: [-1 * speed, 1 * speed],
     initPos: [0, 720],
     colors: {
       dark: 0x995252,
-      light: 0xe2c6ee,
+      light: 0xF5B7B0,
     }
   },
 ];
@@ -82,10 +77,10 @@ class Shape {
     this._graphic = new Graphics()
       .circle(0, 0, 480)
       .setStrokeStyle(0)
-      .fill(color);
+      .fill({color, alpha: 0.8});
     // .getGlobalPosition(new Point(position[0], position[1]))
     this._graphic.position.set(position[0], position[1]);
-    this._graphic.blendMode = 'screen'
+    this._graphic.blendMode = 'negation'
   }
 
   move() {
@@ -108,27 +103,6 @@ class Shape {
 let app: Application;
 let shapeInstances: Shape[] = [];
 
-const switchColor = (isDarkMode: boolean) => {
-  const oldPositions = shapeInstances.map((shape) => {
-    return [shape.graphic.x, shape.graphic.y];
-  });
-
-  shapeInstances = shapes.map((definition, index) => {
-    const color = isDarkMode ? definition.colors.dark : definition.colors.light;
-
-    return new Shape({
-      color: color,
-      vector: definition.vector,
-      initPos: oldPositions[index] as [number, number],
-    });
-  });
-
-  app.stage.removeChildren();
-  app.stage.addChild(
-    ...shapeInstances.map((shape) => shape.graphic)
-  );
-};
-
 const draw = async () => {
   const isDarkMode = window.matchMedia(
     "(prefers-color-scheme: dark)"
@@ -146,12 +120,14 @@ const draw = async () => {
 
   document.body.appendChild(app.canvas);
 
-  app.canvas.classList.add("w-full");
-  app.canvas.classList.add("h-full");
-  app.canvas.classList.add("fixed");
-  app.canvas.classList.add("top-0");
-  app.canvas.classList.add("object-cover");
-  app.canvas.classList.add(/* tw */ "-z-50");
+  app.canvas.classList.add(
+    "w-full",
+    "h-full",
+    "fixed",
+    "top-0",
+    "object-cover",
+    "-z-50"    
+  );
 
   shapeInstances = shapes.map((definition) => {
     const color = isDarkMode ? definition.colors.dark : definition.colors.light;
@@ -186,6 +162,32 @@ const draw = async () => {
       });
     }
   });
+};
+
+const switchColor = (isDarkMode: boolean) => {
+  const oldPositions = shapeInstances.map((shape) => {
+    return [shape.graphic.x, shape.graphic.y];
+  });
+
+  shapeInstances = shapes.map((definition, index) => {
+    const color = isDarkMode ? definition.colors.dark : definition.colors.light;
+
+    return new Shape({
+      color: color,
+      vector: definition.vector,
+      initPos: oldPositions[index] as [number, number],
+    });
+  });
+
+  app.stage.removeChildren();
+  app.stage.addChild(
+    ...shapeInstances.map((shape) => shape.graphic)
+  );
+
+  if (!isPlaying.get()) {
+    // we need to temporarily start the app to update the colors, but not change the state
+    app.start();
+  }
 };
 
 draw();

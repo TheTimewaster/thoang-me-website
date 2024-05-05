@@ -9,7 +9,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        serif: ['IBM Plex Serif', 'serif'],
+        serif: ['Gloock', 'serif'],
       },
       colors: {
         'lavender': {
