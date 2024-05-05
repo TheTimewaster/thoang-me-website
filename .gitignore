@@ -24,4 +24,3 @@ dist-ssr
 *.sw?
 
 install-state.gz
-.yarn/releases
