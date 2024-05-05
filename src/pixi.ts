@@ -77,7 +77,7 @@ class Shape {
     this._graphic = new Graphics()
       .circle(0, 0, 480)
       .setStrokeStyle(0)
-      .fill({color, alpha: 0.8});
+      .fill({color});
     // .getGlobalPosition(new Point(position[0], position[1]))
     this._graphic.position.set(position[0], position[1]);
     this._graphic.blendMode = 'negation'
