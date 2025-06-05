@@ -1,235 +1,414 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloock&family=Inter:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>thoang.me</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Inter:wght@400;800&display=swap" rel="stylesheet">
-  <title>thoang.me</title>
-</head>
+  <body
+    class="bg-peach text-lavender-900 transition-colors dark:bg-lavender-900 dark:text-peach"
+  >
+    <header
+      class="header fixed left-0 right-0 top-0 flex items-center gap-4 transition-colors"
+    >
+      <div class="flex flex-1 gap-4 p-4 lg:flex-auto">
+        <button
+          id="menu-toggle"
+          class="rounded-full p-3 transition-colors hover:bg-lavender-900 hover:text-peach lg:hidden dark:hover:bg-peach dark:hover:text-lavender-900"
+          aria-label="Toggle navigation"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="2em"
+            height="2em"
+            viewBox="0 0 256 256"
+          >
+            <path
+              fill="currentColor"
+              d="M228 128a12 12 0 0 1-12 12H40a12 12 0 0 1 0-24h176a12 12 0 0 1 12 12M40 76h176a12 12 0 0 0 0-24H40a12 12 0 0 0 0 24m176 104H40a12 12 0 0 0 0 24h176a12 12 0 0 0 0-24"
+            />
+          </svg>
+        </button>
+        <a
+          href="#"
+          class="group rounded-full p-3 transition-colors hover:bg-lavender-900 dark:hover:bg-peach"
+          aria-label="Home"
+        >
+          <svg
+            class="h-8 w-8"
+            version="1.1"
+            viewBox="0 0 500 500"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <clipPath id="a">
+                <path d="m0 1500h1500v-1500h-1500z" />
+              </clipPath>
+            </defs>
 
-<body class="bg-peach dark:bg-lavender-900 transition-colors dark:text-peach text-lavender-900">
-  <header class="header fixed top-0 left-0 right-0 flex gap-4 items-center transition-colors">
-    <div class="flex flex-1 lg:flex-auto p-4 gap-4">
-      <button id="menu-toggle"
-        class="lg:hidden p-3 rounded-full hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-colors"
-        aria-label="Toggle navigation">
-        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256">
-          <path fill="currentColor"
-            d="M228 128a12 12 0 0 1-12 12H40a12 12 0 0 1 0-24h176a12 12 0 0 1 12 12M40 76h176a12 12 0 0 0 0-24H40a12 12 0 0 0 0 24m176 104H40a12 12 0 0 0 0 24h176a12 12 0 0 0 0-24" />
-        </svg>
-      </button>
-      <a href="#" class="hover:bg-lavender-900 dark:hover:bg-peach p-3 transition-colors rounded-full group" aria-label="Home">
-        <svg class="w-8 h-8" version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <clipPath id="a">
-              <path d="m0 1500h1500v-1500h-1500z" />
-            </clipPath>
-          </defs>
-
-          <g transform="matrix(1.3333 0 0 -1.3333 0 2e3)">
-            <g transform="matrix(1.151 0 0 1.1504 -264.8 -23.769)" clip-path="url(#a)">
-              <g transform="matrix(1.001 0 0 .99412 -326.33 330.65)"
-                class="[stroke:black] group-hover:[stroke:white] dark:[stroke:white] dark:group-hover:[stroke:black]"
-                fill="none" stroke-linecap="round" stroke-width="32.589">
-                <path
-                  d="m637.74 981.94-0.57729-265.31a28.78 28.78 150.06 0 1 43.078-24.809c28.712 16.132 54.741 29.882 54.741 29.882"
-                  stroke-linejoin="round" stroke-miterlimit="90" />
-                <path d="m800.37 688.52-0.28728 265.75a29.468 29.468 149.55 0 1-43.77 25.732l-54.217-30.097"
-                  stroke-miterlimit="4.6" />
-                <path d="m702.23 826.4 32.737 17.377" stroke-linejoin="round" />
-                <path d="m572.15 884.19-5e-3 -0.15569" stroke-linejoin="round" />
-                <path d="m865.07 786.69-0.0317 8e-3" stroke-linejoin="round" />
+            <g transform="matrix(1.3333 0 0 -1.3333 0 2e3)">
+              <g
+                transform="matrix(1.151 0 0 1.1504 -264.8 -23.769)"
+                clip-path="url(#a)"
+              >
+                <g
+                  transform="matrix(1.001 0 0 .99412 -326.33 330.65)"
+                  class="[stroke:black] group-hover:[stroke:white] dark:[stroke:white] dark:group-hover:[stroke:black]"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-width="32.589"
+                >
+                  <path
+                    d="m637.74 981.94-0.57729-265.31a28.78 28.78 150.06 0 1 43.078-24.809c28.712 16.132 54.741 29.882 54.741 29.882"
+                    stroke-linejoin="round"
+                    stroke-miterlimit="90"
+                  />
+                  <path
+                    d="m800.37 688.52-0.28728 265.75a29.468 29.468 149.55 0 1-43.77 25.732l-54.217-30.097"
+                    stroke-miterlimit="4.6"
+                  />
+                  <path
+                    d="m702.23 826.4 32.737 17.377"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="m572.15 884.19-5e-3 -0.15569"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="m865.07 786.69-0.0317 8e-3"
+                    stroke-linejoin="round"
+                  />
+                </g>
               </g>
             </g>
-          </g>
-        </svg>
-      </a>
-    </div>
-    <nav id="navigation"
-      class="fixed top-0 z-10 -translate-x-full w-full md:w-80 h-dvh p-8 bg-peach/20 [backdrop-filter:blur(40px)] dark:bg-lavender-900/20 lg:backdrop-blur-none lg:!bg-transparent lg:px-0 lg:py-4 transition-transform lg:relative lg:translate-x-0 lg:w-full lg:h-auto lg:flex lg:gap-8 lg:items-center">
-      <button id="menu-close"
-        class="mb-4 lg:hidden p-3 rounded-full hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-colors"
-        aria-label="Close navigation">
-        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256">
-          <path fill="currentColor"
-            d="M228 128a12 12 0 0 1-12 12H69l51.52 51.51a12 12 0 0 1-17 17l-72-72a12 12 0 0 1 0-17l72-72a12 12 0 0 1 17 17L69 116h147a12 12 0 0 1 12 12" />
-        </svg>
-      </button>
-      <a href="#about" tabindex="1"
-        class="navigation__link block mb-4 lg:mb-0 text-lavender-900 dark:text-peach hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-all font-bold p-4 rounded-full opacity-0 lg:opacity-100 lg:delay-0">
-        About
-      </a>
-      <a href="#stack" tabindex="1"
-        class="navigation__link block mb-4 lg:mb-0 text-lavender-900 dark:text-peach hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-all font-bold p-4 rounded-full opacity-0 lg:opacity-100 lg:delay-0">
-        Stack
-      </a>
-      <!-- <a href="#photography" tabindex="1"
+          </svg>
+        </a>
+      </div>
+      <nav
+        id="navigation"
+        class="fixed top-0 z-10 h-dvh w-full -translate-x-full bg-peach/20 p-8 transition-transform [backdrop-filter:blur(40px)] md:w-80 lg:relative lg:flex lg:h-auto lg:w-full lg:translate-x-0 lg:items-center lg:gap-8 lg:!bg-transparent lg:px-0 lg:py-4 lg:backdrop-blur-none dark:bg-lavender-900/20"
+      >
+        <button
+          id="menu-close"
+          class="mb-4 rounded-full p-3 transition-colors hover:bg-lavender-900 hover:text-peach lg:hidden dark:hover:bg-peach dark:hover:text-lavender-900"
+          aria-label="Close navigation"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="2em"
+            height="2em"
+            viewBox="0 0 256 256"
+          >
+            <path
+              fill="currentColor"
+              d="M228 128a12 12 0 0 1-12 12H69l51.52 51.51a12 12 0 0 1-17 17l-72-72a12 12 0 0 1 0-17l72-72a12 12 0 0 1 17 17L69 116h147a12 12 0 0 1 12 12"
+            />
+          </svg>
+        </button>
+        <a
+          href="#about"
+          tabindex="1"
+          class="navigation__link mb-4 block rounded-full p-4 font-bold text-lavender-900 opacity-0 transition-all hover:bg-lavender-900 hover:text-peach lg:mb-0 lg:opacity-100 lg:delay-0 dark:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+        >
+          About
+        </a>
+        <a
+          href="#stack"
+          tabindex="1"
+          class="navigation__link mb-4 block rounded-full p-4 font-bold text-lavender-900 opacity-0 transition-all hover:bg-lavender-900 hover:text-peach lg:mb-0 lg:opacity-100 lg:delay-0 dark:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+        >
+          Stack
+        </a>
+        <!-- <a href="#photography" tabindex="1"
         class="navigation__link block mb-4 lg:mb-0 text-lavender-900 dark:text-peach hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-all font-bold p-4 rounded-full opacity-0 lg:opacity-100 lg:delay-0"
       >
         Photography
       </a> -->
-      <a href="#gear" tabindex="1"
-        class="navigation__link block mb-4 lg:mb-0 text-lavender-900 dark:text-peach hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-all font-bold p-4 rounded-full opacity-0 lg:opacity-100 lg:delay-0">
-        Gear
-      </a>
-      <a href="#playlist" tabindex="1"
-        class="navigation__link block mb-4 lg:mb-0 text-lavender-900 dark:text-peach hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-all font-bold p-4 rounded-full opacity-0 lg:opacity-100 lg:delay-0">
-        Playlist
-      </a>
-
-    </nav>
-
-    <div class="flex gap-4 px-4">
-      <button
-        class="theme-toggle p-3 hover:bg-lavender-900 hover:text-peach dark:hover:bg-peach dark:hover:text-lavender-900 rounded-full transition-colors"
-        aria-label="Toggle theme">
-        <div class="theme-toggle__box w-8 h-8 overflow-y-hidden relative">
-          <svg class="theme-toggle__moon h-full w-full transition-transform duration-200 ease-in-out"
-            xmlns="http://www.w3.org/2000/svg" wclassth="1em" height="1em" viewBox="0 0 256 256">
-            <path fill="currentColor"
-              d="M236.37 139.4a12 12 0 0 0-12-3A84.07 84.07 0 0 1 119.6 31.59a12 12 0 0 0-15-15a108.86 108.86 0 0 0-54.91 38.48A108 108 0 0 0 136 228a107.09 107.09 0 0 0 64.93-21.69a108.86 108.86 0 0 0 38.44-54.94a12 12 0 0 0-3-11.97m-49.88 47.74A84 84 0 0 1 68.86 69.51a84.93 84.93 0 0 1 23.41-21.22Q92 52.13 92 56a108.12 108.12 0 0 0 108 108q3.87 0 7.71-.27a84.79 84.79 0 0 1-21.22 23.41" />
-          </svg>
-          <svg class="theme-toggle__sun h-full w-full transition-transform duration-200 ease-in-out"
-            xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
-            <path fill="currentColor"
-              d="M116 36V20a12 12 0 0 1 24 0v16a12 12 0 0 1-24 0m80 92a68 68 0 1 1-68-68a68.07 68.07 0 0 1 68 68m-24 0a44 44 0 1 0-44 44a44.05 44.05 0 0 0 44-44M51.51 68.49a12 12 0 1 0 17-17l-12-12a12 12 0 0 0-17 17Zm0 119l-12 12a12 12 0 0 0 17 17l12-12a12 12 0 1 0-17-17M196 72a12 12 0 0 0 8.49-3.51l12-12a12 12 0 0 0-17-17l-12 12A12 12 0 0 0 196 72m8.49 115.51a12 12 0 0 0-17 17l12 12a12 12 0 0 0 17-17ZM48 128a12 12 0 0 0-12-12H20a12 12 0 0 0 0 24h16a12 12 0 0 0 12-12m80 80a12 12 0 0 0-12 12v16a12 12 0 0 0 24 0v-16a12 12 0 0 0-12-12m108-92h-16a12 12 0 0 0 0 24h16a12 12 0 0 0 0-24" />
-          </svg>
-        </div>
-      </button>
-      <button
-        class="animation-toggle p-3 hover:bg-lavender-900 hover:text-peach dark:hover:bg-peach dark:hover:text-lavender-900 rounded-full transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg"
-          class="animation-toggle__icon transition-transform animate-spin [animation-duration:20s]" width="2em"
-          height="2em" viewBox="0 0 48 48">
-          <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4">
-            <path d="M24 40.944A11.955 11.955 0 0 0 32 44c6.627 0 12-5.373 12-12c0-5.591-3.824-10.29-9-11.622" />
+        <a
+          href="#gear"
+          tabindex="1"
+          class="navigation__link mb-4 block rounded-full p-4 font-bold text-lavender-900 opacity-0 transition-all hover:bg-lavender-900 hover:text-peach lg:mb-0 lg:opacity-100 lg:delay-0 dark:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+        >
+          Gear
+        </a>
+        <a
+          href="https://blog.thoang.me"
+          tabindex="1"
+          class="group mb-4 block max-h-14 rounded-full p-4 font-bold text-lavender-900 opacity-0 transition-all hover:bg-lavender-900 hover:text-peach lg:mb-0 lg:opacity-100 lg:delay-0 dark:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+        >
+          Blog
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="inline-block transition-transform group-hover:-rotate-45"
+          >
             <path
-              d="M13 20.378C7.824 21.71 4 26.408 4 32c0 6.627 5.373 12 12 12s12-5.373 12-12c0-1.55-.294-3.03-.828-4.39" />
-            <path d="M24 28c6.627 0 12-5.373 12-12S30.627 4 24 4S12 9.373 12 16s5.373 12 12 12Z" />
-          </g>
-        </svg>
-      </button>
-    </div>
-  </header>
-  <main>
-    <section class="h-screen flex p-4 justify-center items-center md:p-8 text-lavender-900 dark:text-peach snap-start"
-      id="home">
-      <div class="w-full md:w-4/5 lg:w-1/2 lg:max-w-6xl">
-        <h1 class="font-serif font-bold !leading-tight text-6xl 2xl:text-8xl">
-          <span class="text-8xl">Hello!</span><br>I am <span>Tu Hoang</span> and I do fun stuff.
-        </h1>
-        <p>Frontend Developer&nbsp;&#x2022;&nbsp;Photography&nbsp;&#x2022;&nbsp;Music enthusiast</p>
+              fill="currentColor"
+              d="M13.47 8.53a.75.75 0 0 1 1.06-1.06l4 4a.75.75 0 0 1 0 1.06l-4 4a.75.75 0 1 1-1.06-1.06l2.72-2.72H6.5a.75.75 0 0 1 0-1.5h9.69z"
+            />
+          </svg>
+          <span class="sr-only">Open blog</span>
+        </a>
+        <!-- <a
+          href="#playlist"
+          tabindex="1"
+          class="navigation__link mb-4 block rounded-full p-4 font-bold text-lavender-900 opacity-0 transition-all hover:bg-lavender-900 hover:text-peach lg:mb-0 lg:opacity-100 lg:delay-0 dark:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+        >
+          Playlist
+        </a> -->
+      </nav>
+
+      <div class="flex gap-4 px-4">
+        <button
+          class="theme-toggle rounded-full p-3 transition-colors hover:bg-lavender-900 hover:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+          aria-label="Toggle theme"
+        >
+          <div class="theme-toggle__box relative h-8 w-8 overflow-y-hidden">
+            <svg
+              class="theme-toggle__moon h-full w-full transition-transform duration-200 ease-in-out"
+              xmlns="http://www.w3.org/2000/svg"
+              wclassth="1em"
+              height="1em"
+              viewBox="0 0 256 256"
+            >
+              <path
+                fill="currentColor"
+                d="M236.37 139.4a12 12 0 0 0-12-3A84.07 84.07 0 0 1 119.6 31.59a12 12 0 0 0-15-15a108.86 108.86 0 0 0-54.91 38.48A108 108 0 0 0 136 228a107.09 107.09 0 0 0 64.93-21.69a108.86 108.86 0 0 0 38.44-54.94a12 12 0 0 0-3-11.97m-49.88 47.74A84 84 0 0 1 68.86 69.51a84.93 84.93 0 0 1 23.41-21.22Q92 52.13 92 56a108.12 108.12 0 0 0 108 108q3.87 0 7.71-.27a84.79 84.79 0 0 1-21.22 23.41"
+              />
+            </svg>
+            <svg
+              class="theme-toggle__sun h-full w-full transition-transform duration-200 ease-in-out"
+              xmlns="http://www.w3.org/2000/svg"
+              width="1em"
+              height="1em"
+              viewBox="0 0 256 256"
+            >
+              <path
+                fill="currentColor"
+                d="M116 36V20a12 12 0 0 1 24 0v16a12 12 0 0 1-24 0m80 92a68 68 0 1 1-68-68a68.07 68.07 0 0 1 68 68m-24 0a44 44 0 1 0-44 44a44.05 44.05 0 0 0 44-44M51.51 68.49a12 12 0 1 0 17-17l-12-12a12 12 0 0 0-17 17Zm0 119l-12 12a12 12 0 0 0 17 17l12-12a12 12 0 1 0-17-17M196 72a12 12 0 0 0 8.49-3.51l12-12a12 12 0 0 0-17-17l-12 12A12 12 0 0 0 196 72m8.49 115.51a12 12 0 0 0-17 17l12 12a12 12 0 0 0 17-17ZM48 128a12 12 0 0 0-12-12H20a12 12 0 0 0 0 24h16a12 12 0 0 0 12-12m80 80a12 12 0 0 0-12 12v16a12 12 0 0 0 24 0v-16a12 12 0 0 0-12-12m108-92h-16a12 12 0 0 0 0 24h16a12 12 0 0 0 0-24"
+              />
+            </svg>
+          </div>
+        </button>
+        <button
+          class="animation-toggle rounded-full p-3 transition-colors hover:bg-lavender-900 hover:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="animation-toggle__icon animate-spin transition-transform [animation-duration:20s]"
+            width="2em"
+            height="2em"
+            viewBox="0 0 48 48"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linejoin="round"
+              stroke-width="4"
+            >
+              <path
+                d="M24 40.944A11.955 11.955 0 0 0 32 44c6.627 0 12-5.373 12-12c0-5.591-3.824-10.29-9-11.622"
+              />
+              <path
+                d="M13 20.378C7.824 21.71 4 26.408 4 32c0 6.627 5.373 12 12 12s12-5.373 12-12c0-1.55-.294-3.03-.828-4.39"
+              />
+              <path
+                d="M24 28c6.627 0 12-5.373 12-12S30.627 4 24 4S12 9.373 12 16s5.373 12 12 12Z"
+              />
+            </g>
+          </svg>
+        </button>
       </div>
-    </section>
-
-    <section class="mb-20 px-4 w-full md:w-4/5 lg:w-1/2 lg:max-w-6xl mx-auto flex flex-col justify-center" id="about">
-      <h2 class="text-6xl font-bold mb-4">About</h2>
-      <p class="mb-4">
-        I am a Frontend Developer, currently located in Leipzig, Germany.
-        Currently I am employed at a Munich based company specialized in hosting for game servers.
-        I worked for several middle-sized companies in Germany with backgrounds in e-commerce and hospitality.
-      </p>
-
-      <p class="mb-4">
-        Some of the tasks and projects I have been working on in the past you can find on
-        <a href="https://read.cv/twentytu" class="underline">Read.cv</a>.
-      </p>
-
-      <p class="mb-4">
-        I am passionate about building beautiful and user-friendly web applications and websites with a high emphasis on
-        quality, when it comes to code, design and user experience.
-        My main focus is the Vue ecosystem.
-      </p>
-
-      <h2 class="text-center mt-4">Where to find me:</h2>
-      <ul class="flex justify-center gap-4 mt-2">
-        <li>
-          <a href="https://instagram.com/thirtytu" aria-label="Instagram"
-            class="block p-3 rounded-full hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256">
-              <path fill="currentColor"
-                d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48m0 72a24 24 0 1 1 24-24a24 24 0 0 1-24 24m48-132H80a60.07 60.07 0 0 0-60 60v96a60.07 60.07 0 0 0 60 60h96a60.07 60.07 0 0 0 60-60V80a60.07 60.07 0 0 0-60-60m36 156a36 36 0 0 1-36 36H80a36 36 0 0 1-36-36V80a36 36 0 0 1 36-36h96a36 36 0 0 1 36 36ZM196 76a16 16 0 1 1-16-16a16 16 0 0 1 16 16" />
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/TheTimewaster" aria-label="GitHub"
-            class="block p-3 rounded-full hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256">
-              <path fill="currentColor"
-                d="M212.62 75.17A63.7 63.7 0 0 0 206.39 26A12 12 0 0 0 196 20a63.71 63.71 0 0 0-50 24h-20a63.71 63.71 0 0 0-50-24a12 12 0 0 0-10.39 6a63.7 63.7 0 0 0-6.23 49.17A61.5 61.5 0 0 0 52 104v8a60.1 60.1 0 0 0 45.76 58.28A43.66 43.66 0 0 0 92 192v4H76a20 20 0 0 1-20-20a44.05 44.05 0 0 0-44-44a12 12 0 0 0 0 24a20 20 0 0 1 20 20a44.05 44.05 0 0 0 44 44h16v12a12 12 0 0 0 24 0v-40a20 20 0 0 1 40 0v40a12 12 0 0 0 24 0v-40a43.66 43.66 0 0 0-5.76-21.72A60.1 60.1 0 0 0 220 112v-8a61.5 61.5 0 0 0-7.38-28.83M196 112a36 36 0 0 1-36 36h-48a36 36 0 0 1-36-36v-8a37.87 37.87 0 0 1 6.13-20.12a11.65 11.65 0 0 0 1.58-11.49a39.9 39.9 0 0 1-.4-27.72a39.87 39.87 0 0 1 26.41 17.8a12 12 0 0 0 10.1 5.53h32.35a12 12 0 0 0 10.11-5.53a39.84 39.84 0 0 1 26.41-17.8a39.9 39.9 0 0 1-.4 27.72a12 12 0 0 0 1.61 11.53A37.85 37.85 0 0 1 196 104Z" />
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/tu-hoang-50184a1bb/" aria-label="LinkedIn"
-            class="block p-3 rounded-full hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256">
-              <path fill="currentColor"
-                d="M216 20H40a20 20 0 0 0-20 20v176a20 20 0 0 0 20 20h176a20 20 0 0 0 20-20V40a20 20 0 0 0-20-20m-4 192H44V44h168Zm-100-36v-56a12 12 0 0 1 21.43-7.41A40 40 0 0 1 192 148v28a12 12 0 0 1-24 0v-28a16 16 0 0 0-32 0v28a12 12 0 0 1-24 0m-16-56v56a12 12 0 0 1-24 0v-56a12 12 0 0 1 24 0M68 80a16 16 0 1 1 16 16a16 16 0 0 1-16-16" />
-            </svg>
-          </a>
-        </li>
-
-        <li>
-          <a href="https://open.spotify.com/user/thetimewasted"
-            class="block p-3 rounded-full hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-colors"
-            aria-label="Spotify">
-            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256">
-              <path fill="currentColor"
-                d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88m31.07-46.26a8 8 0 0 1-10.81 3.33a42.79 42.79 0 0 0-40.52 0a8 8 0 0 1-7.48-14.14a59.33 59.33 0 0 1 55.48 0a8 8 0 0 1 3.33 10.81m32-56a8 8 0 0 1-10.83 3.29a110.62 110.62 0 0 0-104.46 0a8 8 0 0 1-7.54-14.12a126.67 126.67 0 0 1 119.54 0a8 8 0 0 1 3.28 10.85Zm-16 28a8 8 0 0 1-10.82 3.3a77 77 0 0 0-72.48 0a8 8 0 0 1-7.52-14.12a93 93 0 0 1 87.52 0a8 8 0 0 1 3.29 10.84Z" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <section id="stack" class="px-4 mb-20 w-full md:w-4/5 lg:w-1/2 lg:max-w-6xl mx-auto flex flex-col justify-center">
-      <h2 class="text-6xl font-bold mb-4">Stack</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="">
-          <h3 class="text-4xl font-bold mb-4">Frontend</h3>
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Vue</li>
-            <li>Nuxt</li>
-            <li>Tailwind CSS</li>
-            <li>Vite</li>
-            <li>Rollup</li>
-          </ul>
+    </header>
+    <main>
+      <section
+        class="flex h-screen snap-start items-center justify-center p-4 text-lavender-900 md:p-8 dark:text-peach"
+        id="home"
+      >
+        <div class="w-full md:w-4/5 lg:w-1/2 lg:max-w-6xl">
+          <h1 class="font-serif text-6xl font-bold !leading-tight 2xl:text-8xl">
+            <span class="text-8xl 2xl:text-[10rem]">Hello!</span><br />I am
+            <span>Tu Hoang</span> and I do fun stuff.
+          </h1>
+          <p>
+            Frontend
+            Developer&nbsp;&#x2022;&nbsp;Photography&nbsp;&#x2022;&nbsp;Music
+            enthusiast
+          </p>
         </div>
+      </section>
 
-        <div class="">
-          <h3 class="text-4xl font-bold mb-4">Backend</h3>
-          <ul>
-            <li>Node.js</li>
-            <li>GRPC</li>
-            <li>GraphQL</li>
-            <li>REST API</li>
-            <li>Strapi</li>
-          </ul>
+      <section
+        class="mx-auto mb-20 flex w-full flex-col justify-center px-4 md:w-4/5 lg:w-1/2 lg:max-w-6xl"
+        id="about"
+      >
+        <h2 class="mb-4 text-6xl font-bold">About</h2>
+        <p class="mb-4">
+          I am a Frontend Developer, currently located in Leipzig, Germany. I
+          worked for several middle-sized companies in Germany with backgrounds
+          in server hosting, e-commerce and hospitality.
+        </p>
+
+        <p class="mb-4">
+          Some of the tasks and projects I have been working on in the past you
+          can find on
+          <a href="https://read.cv/twentytu" class="underline">Read.cv</a>.
+        </p>
+
+        <p class="mb-4">
+          I am passionate about building beautiful and user-friendly web
+          applications and websites with a high emphasis on quality, when it
+          comes to code, design and user experience. My main focus is the Vue
+          ecosystem.
+        </p>
+
+        <h2 class="mt-4 text-center">Where to find me:</h2>
+        <ul class="mt-2 flex justify-center gap-4">
+          <li>
+            <a
+              href="https://instagram.com/thirtytu"
+              aria-label="Instagram"
+              class="block rounded-full p-3 transition-colors hover:bg-lavender-900 hover:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="2em"
+                height="2em"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/TheTimewaster"
+              aria-label="GitHub"
+              class="block rounded-full p-3 transition-colors hover:bg-lavender-900 hover:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="2em"
+                height="2em"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/tu-hoang-50184a1bb/"
+              aria-label="LinkedIn"
+              class="block rounded-full p-3 transition-colors hover:bg-lavender-900 hover:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="2em"
+                height="2em"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"
+                />
+              </svg>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://open.spotify.com/user/thetimewasted"
+              class="block rounded-full p-3 transition-colors hover:bg-lavender-900 hover:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+              aria-label="Spotify"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="2em"
+                height="2em"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M17.9 10.9C14.7 9 9.35 8.8 6.3 9.75c-.5.15-1-.15-1.15-.6c-.15-.5.15-1 .6-1.15c3.55-1.05 9.4-.85 13.1 1.35c.45.25.6.85.35 1.3c-.25.35-.85.5-1.3.25m-.1 2.8c-.25.35-.7.5-1.05.25c-2.7-1.65-6.8-2.15-9.95-1.15c-.4.1-.85-.1-.95-.5s.1-.85.5-.95c3.65-1.1 8.15-.55 11.25 1.35c.3.15.45.65.2 1m-1.2 2.75c-.2.3-.55.4-.85.2c-2.35-1.45-5.3-1.75-8.8-.95c-.35.1-.65-.15-.75-.45c-.1-.35.15-.65.45-.75c3.8-.85 7.1-.5 9.7 1.1c.35.15.4.55.25.85M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section
+        id="stack"
+        class="mb-20 flex w-full flex-col justify-center px-4"
+      >
+        <h2
+          class="mx-auto mb-4 w-full text-6xl font-bold md:w-4/5 lg:w-1/2 lg:max-w-6xl"
+        >
+          Stack
+        </h2>
+
+        <div
+          class="mx-auto grid w-full grid-cols-1 gap-4 md:w-4/5 lg:w-3/4 xl:max-w-[1600px] xl:grid-cols-3 xl:gap-8"
+        >
+          <div class="rounded-3xl bg-peach p-8 dark:bg-lavender-900">
+            <p class="mb-4 text-4xl">🖖</p>
+            <h3 class="mb-4 text-4xl font-bold">Frontend</h3>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Vue</li>
+              <li>Nuxt</li>
+              <li>Tailwind CSS</li>
+              <li>Vite</li>
+              <li>Rollup</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl bg-peach p-8 dark:bg-lavender-900">
+            <p class="mb-4 text-4xl">🌐</p>
+            <h3 class="mb-4 text-4xl font-bold">Backend</h3>
+            <ul>
+              <li>Node.js</li>
+              <li>GRPC</li>
+              <li>GraphQL</li>
+              <li>REST API</li>
+              <li>Strapi</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl bg-peach p-8 dark:bg-lavender-900">
+            <p class="mb-4 text-4xl">🛠️</p>
+            <h3 class="mb-4 text-4xl font-bold">Testing</h3>
+            <ul>
+              <li>Jest</li>
+              <li>Vitest</li>
+              <li>Playwright</li>
+              <li>Storybook</li>
+            </ul>
+          </div>
         </div>
+      </section>
 
-        <div>
-          <h3 class="text-4xl font-bold mb-4">Testing</h3>
-          <ul>
-            <li>Jest</li>
-            <li>Vitest</li>
-            <li>Playwright</li>
-            <li>Storybook</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- <section id="photography" class=" px-4 mb-20 w-full md:w-4/5 lg:w-1/2 lg:max-w-6xl mx-auto flex flex-col justify-center">
+      <!-- <section id="photography" class=" px-4 mb-20 w-full md:w-4/5 lg:w-1/2 lg:max-w-6xl mx-auto flex flex-col justify-center">
       <h2 class="text-6xl font-bold mb-4">Photography</h2>
       <p class="mb-4">
         My trusty Sony Alpha 7 is always with me on my travels. I love to capture archicture and city scapes.
@@ -241,140 +420,211 @@
       </div>
     </section> -->
 
-    <section id="gear" class="px-4 mb-20 w-full md:w-4/5 lg:w-1/2 lg:max-w-6xl mx-auto flex flex-col justify-center">
-      <h2 class="text-6xl font-bold mb-4">Gear</h2>
-      <p class="mb-4">
-        I am a gearhead. Here is a list of my stuff currently in use.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="">
-          <h3 class="text-4xl font-bold mb-4">
-            Daily Drivers
-          </h3>
-          <ul>
-            <li>Apple iPhone 12</li>
-            <li>Apple Watch Series 7</li>
-            <li>Apple iPad Pro 11" (3rd Gen) + Apple Pencil (2nd Gen)</li>
-            <li>Apple Macbook Pro 14" (2021)</li>
-            <li>Apple AirPods Pro (1st Gen)</li>
-            <li>Cherry MX Board Red Switches</li>
-          </ul>
+      <section id="gear" class="mb-20 flex w-full flex-col justify-center px-4">
+        <div class="mx-auto mb-4 w-full md:w-4/5 lg:w-1/2 lg:max-w-6xl">
+          <h2 class="text-6xl font-bold">Gear</h2>
         </div>
 
-        <div>
-          <h3 class="text-4xl font-bold mb-4">
-            Audio
-          </h3>
-          <ul>
-            <li>Sony WH-1000MX2</li>
-            <li>Audio-Technica ATH-M50x</li>
-            <li>FiiO E10K Olympus</li>
-            <li>ifi Zen DAC</li>
-            <li>AKG 7XX</li>
-            <li>KEF Q350</li>
-          </ul>
+        <div
+          class="mx-auto grid w-full grid-cols-1 gap-4 md:w-4/5 lg:w-3/4 xl:max-w-[1600px] xl:grid-cols-3 xl:gap-8"
+        >
+          <div class="rounded-3xl bg-peach p-8 dark:bg-lavender-900">
+            <p class="mb-4 text-4xl">📱</p>
+            <h3 class="mb-4 text-4xl font-bold">Daily Drivers</h3>
+            <ul>
+              <li>Apple iPhone 12</li>
+              <li>Apple Watch Series 7</li>
+              <li>Apple iPad Pro 11" (3rd Gen) + Apple Pencil (2nd Gen)</li>
+              <li>Apple Macbook Pro 14" (2021)</li>
+              <li>Apple AirPods Pro (1st Gen)</li>
+              <li>Cherry MX Board Red Switches</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl bg-peach p-8 dark:bg-lavender-900">
+            <p class="mb-4 text-4xl">🎧</p>
+            <h3 class="mb-4 text-4xl font-bold">Audio</h3>
+            <ul>
+              <li>Sony WH-1000MX5</li>
+              <li>Audio-Technica ATH-M50x</li>
+              <li>FiiO E10K Olympus</li>
+              <li>ifi Zen DAC</li>
+              <li>AKG 7XX</li>
+              <li>KEF Q350</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl bg-peach p-8 dark:bg-lavender-900">
+            <p class="mb-4 text-4xl">📸</p>
+            <h3 class="mb-4 text-4xl font-bold">Photography</h3>
+            <ul>
+              <li>Sony Alpha 7 (ILCE-7)</li>
+              <li>Sony LA-EA4</li>
+              <li>Canon FD 50mm f1.4 with E-Mount Adapter</li>
+              <li>Minolta AF 28-105mm f3.5-4.5 RS</li>
+              <li>Sigma 17-35mm f2.8-4 A-Mount</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl bg-peach p-8 dark:bg-lavender-900">
+            <p class="mb-4 text-4xl">☕</p>
+            <h3 class="mb-4 text-4xl font-bold">Coffee</h3>
+            <ul>
+              <li>Hario V60 02 Ceramic</li>
+              <li>Hario Switch 03</li>
+              <li>Aeropress</li>
+              <li>Kalita Wave</li>
+              <li>Comandante C40</li>
+              <li>Sage Dose Control Pro</li>
+              <li>Fellow Stagg EKG</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl bg-peach p-8 dark:bg-lavender-900">
+            <p class="mb-4 text-4xl">⌨</p>
+            <h3 class="mb-4 text-4xl font-bold">PC specs</h3>
+            <ul>
+              <li>AMD Ryzen 7 2800</li>
+              <li>32GB DDR4 RAM</li>
+              <li>Asus Prime B450-Plus Mainboard</li>
+              <li>Asus GeForce GTX 1070 OC Dual 8GB</li>
+              <li>Samsung 970 EVO M.2 500GB</li>
+              <li>Fractal Design Define R6 Case</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl bg-peach p-8 dark:bg-lavender-900">
+            <p class="mb-4 text-4xl">🎮</p>
+            <h3 class="mb-4 text-4xl font-bold">Gaming</h3>
+            <ul>
+              <li>Playstation 5</li>
+              <li>Nintendo Switch</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl bg-peach p-8 dark:bg-lavender-900">
+            <p class="mb-4 text-4xl">🚲</p>
+            <h3 class="mb-4 text-4xl font-bold">Miscellaneous</h3>
+            <ul>
+              <li>Leuchtturm1917 Monocle Notebook</li>
+              <li>Fuji Feather (2021)</li>
+              <li>Cannondale Topstone 1 Cinnamon</li>
+              <li>Garmin Edge 540 Solar</li>
+            </ul>
+          </div>
         </div>
+      </section>
 
-        <div>
-          <h3 class="text-4xl font-bold mb-4">Photography</h3>
-          <ul>
-            <li>Sony Alpha 7 (ILCE-7)</li>
-            <li>Sony LA-EA4</li>
-            <li>Canon FD 50mm f1.4 with E-Mount Adapter</li>
-            <li>Minolta AF 28-105mm f3.5-4.5 RS</li>
-            <li>Sigma 17-35mm f2.8-4 A-Mount</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-4xl font-bold mb-4">Coffee</h3>
-          <ul>
-            <li>Hario V60 02 Ceramic</li>
-            <li>Hario Switch 03</li>
-            <li>Aeropress</li>
-            <li>Kalita Wave</li>
-            <li>Comandante C40</li>
-            <li>Sage Dose Control Pro</li>
-            <li>Fellow Stagg EKG</li>
-          </ul>
-        </div>
-
-        <div class="">
-          <h3 class="text-4xl font-bold mb-4">PC specs</h3>
-          <ul>
-            <li>AMD Ryzen 7 2800</li>
-            <li>32GB DDR4 RAM</li>
-            <li>Asus Prime B450-Plus Mainboard</li>
-            <li>Asus GeForce GTX 1070 OC Dual 8GB</li>
-            <li>Samsung 970 EVO M.2 500GB</li>
-            <li>Fractal Design Define R6 Case</li>
-          </ul>
-        </div>
-
-        <div class="">
-          <h3 class="text-4xl font-bold mb-4">Gaming</h3>
-          <ul>
-            <li>Playstation 5</li>
-            <li>Nintendo Switch</li>
-          </ul>
-        </div>
-
-        <div class="">
-          <h3 class="text-4xl font-bold mb-4">Miscellaneous</h3>
-          <ul>
-            <li>Leuchtturm1917 Monocle Notebook</li>
-            <li>Fuji Feather (2021)</li>
-            <li>Cannondale Topstone 1 Cinnamon</li>
-            <li>Wahoo ELEMNT Bolt</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="playlist" class="px-4 mb-20 w-full md:w-4/5 lg:w-1/2 lg:max-w-6xl mx-auto flex flex-col justify-center">
-      <h2 class="text-6xl font-bold mb-4">Playlist</h2>
-
-      <p class="mb-4">
-        I love music. Here is a list of my current favorite tracks.
-      </p>
-
-      <div
-        id="spotify-widget-placeholder"
-        class="text-center w-full aspect-[3/2] flex justify-center items-center bg-lavender-900/50 rounded-lg"
+      <section
+        id="blog"
+        class="mx-auto mb-20 w-full flex-col justify-center px-4 md:w-4/5 lg:w-1/2 lg:max-w-6xl"
       >
-        <p>
-          Do you want to display the Spotify widget?
-          <br>
-          <button
-            class="mt-4 p-3 rounded-full hover:bg-lavender-900 dark:hover:bg-peach hover:text-peach dark:hover:text-lavender-900 transition-colors font-bold"
-            id="spotify-toggle" 
-            aria-label="Toggle Spotify widget"
-          >
-          
-            Yes
-          </button>
+        <h2 class="mb-4 text-6xl font-bold">Blog</h2>
+        <p class="mb-4">
+          I write about my experiences, projects and other things that interest
+          me on my blog.
         </p>
-      </div>
 
-      <div
-        id="spotify-widget"
-        class="hidden"
-      >
-      </div>
-    </section>
+        <a
+          href="https://blog.thoang.me"
+          class="group mx-auto block max-w-40 rounded-full bg-lavender-900 p-4 text-center font-bold text-peach transition-colors hover:bg-peach hover:text-lavender-900 dark:bg-peach dark:text-lavender-900 dark:hover:bg-lavender-900 dark:hover:text-peach"
+          target="_blank"
+        >
+          Visit blog
 
-    <p class="text-center p-4">
-      Tu Hoang, 2024
-      <br>
-      <a href="https://github.com/TheTimewaster/thoang-me-website" class="underline">Source</a>
-      &nbsp;&#x2022;&nbsp;
-      Powered by <a href="https://vitejs.dev/" class="underline">Vite</a>,
-      <a href="https://pixijs.com/" class="underline">PixiJS</a>,
-      <a href="https://tailwindcss.com/" class="underline">Tailwind CSS</a> and
-      <a href="https://pages.cloudflare.com/" class="underline">Cloudflare Pages</a>
-    </p>
-  </main>
-  <script type="module" src="/src/main.ts"></script>
-</body>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="inline-block transition-transform group-hover:-rotate-45"
+          >
+            <path
+              fill="currentColor"
+              d="M13.47 8.53a.75.75 0 0 1 1.06-1.06l4 4a.75.75 0 0 1 0 1.06l-4 4a.75.75 0 1 1-1.06-1.06l2.72-2.72H6.5a.75.75 0 0 1 0-1.5h9.69z"
+            ></path>
+          </svg>
+        </a>
+      </section>
 
+      <footer class="p-4 text-xs">
+        <p class="text-center">Tu Hoang, 2025</p>
+        <ul class="mt-2 flex justify-center gap-4">
+          <li>
+            <a
+              href="https://instagram.com/thirtytu"
+              aria-label="Instagram"
+              class="block rounded-full p-3 transition-colors hover:bg-lavender-900 hover:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="2em"
+                height="2em"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/TheTimewaster"
+              aria-label="GitHub"
+              class="block rounded-full p-3 transition-colors hover:bg-lavender-900 hover:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="2em"
+                height="2em"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/tu-hoang-50184a1bb/"
+              aria-label="LinkedIn"
+              class="block rounded-full p-3 transition-colors hover:bg-lavender-900 hover:text-peach dark:hover:bg-peach dark:hover:text-lavender-900"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="2em"
+                height="2em"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+        <p class="text-center">
+          <a
+            href="https://github.com/TheTimewaster/thoang-me-website"
+            class="underline"
+            >Source</a
+          >
+          &nbsp;&#x2022;&nbsp; Powered by
+          <a href="https://vitejs.dev/" class="underline">Vite</a>,
+          <a href="https://pixijs.com/" class="underline">PixiJS</a>,
+          <a href="https://tailwindcss.com/" class="underline">Tailwind CSS</a>
+          and
+          <a href="https://pages.cloudflare.com/" class="underline"
+            >Cloudflare Pages</a
+          >
+        </p>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
